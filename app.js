@@ -1,61 +1,33 @@
+        let Operação = '';
+           function calculo(escolha){
+           Operação = escolha;
+           console.log(Operação)
+           }
 
-class Pessoa {
-    #n2m;
-    #n1m;
-    #Calc;
+           class Dígitos{
+        #N1m
+        #N2m
+        #Func
 
-    constructor(n1m, n2m, Calc) {
-        this.#n1m = n1m;
-        this.#n2m = n2m;
-        this.#Calc = Calc;
-    }
-
-   
-    obterNomeCompleto() {
-        return `${this.#n1m} *${this.#Calc} *${this.#n2m}`;
-    }
-
-
-    calcularIdade() {
-       if(){
-
-       };
-       else if(){
-
-       }
-       else if(){
-
-       }
-       else if(){
-
-       }
-       else{
-        alert("Você não sabe usar uma calculadora")
-       }
-    }
-}
-
-
-class PessoaUI {
-    #inputNome;
-    #inputSobrenome;
-    #inputAnoNascimento;
-    #btnCalcular;
-    #divResultado;
-
-    constructor() {
-        // Mapeia os elementos HTML
-        this.#inputNome = document.getElementById('nome');
-        this.#inputSobrenome = document.getElementById('sobrenome');
-        this.#inputAnoNascimento = document.getElementById('anoNascimento');
-        this.#btnCalcular = document.getElementById('btnCalcular');
-        this.#divResultado = document.getElementById('resultado');
-
-        // Configura o evento do botão
-        this.#configurarEventos();
-    }
-
-    #obterDadosFormulario() {
+            constructor(parameters) {
+        this.#N1m=N1m
+        this.#N2m=N2m
+        this.#Func=Func
+            }
+           }
+        class Coleta{
+        #Input_N1
+        #Input_N2
+        #Input_Ope
+        #Btn_Calcular
+        #divResultado
+        constructor(){
+            this.#Input_N1=document.getElementByID("n1m")
+            this.#Input_N2=document.getElementByID("n2m")
+            this.#Btn_Calcular=document.getElementByID("btnCalcular")
+            this.#divResultado=document.getElementByID("resultado")
+        }
+        #obterDadosFormulario() {
         const nome = this.#inputNome.value.trim();
         const sobrenome = this.#inputSobrenome.value.trim();
         const anoNascimento = parseInt(this.#inputAnoNascimento.value);
@@ -66,39 +38,21 @@ class PessoaUI {
 
         return { nome, sobrenome, anoNascimento };
     }
-
-    #processarCalculo() {
-        try {
-            // 1. Coleta e valida as entradas do formulário
-            const { nome, sobrenome, anoNascimento } = this.#obterDadosFormulario();
-
-            // 2. Instancia a classe de domínio Pessoa
-            const pessoa = new Pessoa(nome, sobrenome, anoNascimento);
-
-            // 3. Obtém as informações processadas
-            const nomeCompleto = pessoa.obterNomeCompleto();
-            const idade = pessoa.calcularIdade();
-
-            // 4. Exibe o resultado no HTML
-            this.#divResultado.style.color = "#155724";
-            this.#divResultado.innerHTML = `Olá, <strong>${nomeCompleto}</strong>!<br>Você tem (ou fará) <strong>${idade} anos</strong> este ano.`;
-
-        } catch (erro) {
-            // Tratamento e exibição de mensagens de erro
-            this.#divResultado.style.color = "#721c24";
-            this.#divResultado.textContent = erro.message;
-        }
     }
+        calcularIdade() {
+       if(Operação="-"){
 
-    #configurarEventos() {
-        // Associa o clique do botão ao método de processamento
-        this.#btnCalcular.addEventListener('click', () => {
-            this.#processarCalculo();
-        });
+       };
+       else if(Operação="+"){
+
+       };
+       else if(Operação="/"){
+
+       };
+       else if(Operação="*"){
+
+       };
+       else{
+        alert("Isso nem é possível")
+       };
     }
-}
-
-// Inicializa a interface ao carregar o DOM
-window.addEventListener('DOMContentLoaded', () => {
-    new PessoaUI();
-});
