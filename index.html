@@ -22,12 +22,12 @@
         
         <div class="campo">
             <label for="n1m">Primeiro Número:</label>
-            <input type="text" id="nome" placeholder="Digite seu nome">
+            <input type="number" id="n1m" placeholder="Digite aqui..." step="any">
         </div>
 
         <div class="campo">
             <label for="n2m">Segundo Número:</label>
-            <input type="text" id="n2m" placeholder="Digite seu sobrenome">
+            <input type="number" id="n2m" placeholder="Digite aqui..." step="any">
         </div>
 
     
@@ -35,14 +35,6 @@
         <button id="subtação" onclick="calculo('-')">-</button>
         <button id="multiplicação" onclick="calculo('x')">x</button>
         <button id="divisão" onclick="calculo('*')">/</button>
-        
-        <script>
-            let Operação = '';
-           function calculo(escolha){
-           Operação = escolha;
-           console.log(Operação)
-           }
-        </script>
 
         <button id="btnCalcular">Calcular</button>
 
@@ -52,4 +44,5 @@
     </div>
 
 </body>
+<script src="app.js"></script>
 </html>
