@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Idade - POO</title>
+    <title>Calculadora com Constructor</title>
     <style>
         body { font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; padding-top: 40px; background-color: #f4f6f9; }
         .card { background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 320px; }
@@ -26,17 +26,17 @@
         </div>
 
         <div class="campo">
-            <label for="n2m">Segundo Número:</label>
-            <input type="number" id="n2m" placeholder="Digite aqui..." step="any">
+            <label for="N2m">Segundo Número:</label>
+            <input type="number" id="N2m" placeholder="Digite aqui..." step="any">
         </div>
 
     
         <button id="soma" onclick = "calculo('+')">+</button>
         <button id="subtação" onclick="calculo('-')">-</button>
-        <button id="multiplicação" onclick="calculo('x')">x</button>
-        <button id="divisão" onclick="calculo('*')">/</button>
+        <button id="multiplicação" onclick="calculo('*')">*</button>
+        <button id="divisão" onclick="calculo('/')">/</button>
 
-        <button id="btnCalcular">Calcular</button>
+        <button id="btnCalcular" onclick="Calculações()">Calcular</button>
 
         <div class="resultado-box" id="resultado">
             
