@@ -1,47 +1,76 @@
-        let Operação = '';
-           function calculo(escolha){
-           Operação = escolha;
-           console.log(Operação)
-           }
+let operacao = '';
 
-        class Coleta{
-        #Input_N1
-        #Input_N2
-        #Input_Ope
-        #Btn_Calcular
-        #divResultado
-        constructor(){
-            this.#Input_N1=document.getElementByID("n1m")
-            this.#Input_N2=document.getElementByID("n2m")
-            this.#Btn_Calcular=document.getElementByID("btnCalcular")
-            this.#divResultado=document.getElementByID("resultado")
-        }
+function calculo(escolha) {
+    operacao = escolha;
+    console.log(operacao);
+}
 
-        #obterDadosFormulario() {
-        const N1m = this.#inputNome.value.trim();
-        const N2m = this.#inputSobrenome.value.trim();
-        const Resposta = this.#divResultado
+class Coleta {
+    #Input_N1;
+    #Input_N2;
+    #divResultado;
+
+    constructor() {
+        this.#Input_N1 = document.getElementById("n1m");
+        this.#Input_N2 = document.getElementById("n2m");
+        this.#divResultado = document.getElementById("resultado");
+    }
+
+    obterDadosFormulario() {
+        const N1m = this.#Input_N1.value.trim();
+        const N2m = this.#Input_N2.value.trim();
+
         if (!N1m || !N2m) {
-            throw new Error("Insira os números corretamente");
+            this.#divResultado.innerText = "Insira os números corretamente!";
+            return null; 
         }
-      }
+
+        return {
+            num1: Number(N1m),
+            num2: Number(N2m),
+            resposta: this.#divResultado
+        };
     }
-        Calculações() {
-       if(Operação="-"){
-         let Resultado = N1m-N2m;
-       };
-       else if(Operação="+"){
-         let Resultado = N1m-N2m;
-       };
-       else if(Operação="/"){
-          if(N2m == 0){
-         Resposta.innerText
-          }
-       };
-       else if(Operação="*"){
-         let Resultado = N1m*N2m;
-       };
-       else{
-        alert("Isso nem é possível")
-       };
+}
+
+function Calculacoes() {
+
+    const ConstColeta = new Coleta();
+    
+
+    const Puxandodelá = ConstColeta.obterDadosFormulario();
+
+    if (Puxandodelá === null) {
+        return;
     }
+
+    if (operacao === '') {
+        Puxandodelá.resposta.innerText = "Escolha uma operação!";
+        return;
+    }
+
+    let GrandFinale = 0;
+
+    if (operacao === "-") {
+        GrandFinale = Puxandodelá.num1 - Puxandodelá.num2;
+    } 
+    else if (operacao === "+") {
+        GrandFinale = Puxandodelá.num1 + Puxandodelá.num2;
+    } 
+    else if (operacao === "/") {
+        if (Puxandodelá.numero2 === 0) {
+            Puxandodelá.resposta.innerText = "Divisão Inválida, tá ok?";
+            return;
+        }
+        GrandFinale = Puxandodelá.num1 / Puxandodelá.num2;
+    } 
+    else if (operacao === "*") {
+        GrandFinale = Puxandodelá.num1 * Puxandodelá.num2;
+    } 
+    else {
+        alert("Isso nem é possível");
+        return;
+    }
+
+    Puxandodelá.resposta.innerText = "Resultado: " + GrandFinale;
+}

@@ -5,20 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora com Constructor</title>
     <style>
+        /*CSS COPIADO DO EXEMPLO, COM EXCEÇÃO DA ESTILIZAÇÃO DA CLASSE .CALC*/
         body { font-family: 'Courier New', Courier, monospace; display: flex; justify-content: center; padding-top: 40px; background-color: #f4f6f9; }
         .card { background: #ffffff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 320px; }
         .campo { margin-bottom: 15px; }
         label { display: block; margin-bottom: 5px; font-weight: 600; color: #333; }
         input { width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
-        button { margin-bottom: 15px; width: 100%; padding: 10px; background-color: #74551d; color: white; border: white 1px; border-radius: 4px; font-size: 1rem; font-weight: bold; cursor: pointer; }
-        button:hover { background-color: #7c5c18; }
+        
+        button { margin-bottom: 15px; width: 100%; padding: 10px; background-color: #3a2b0ead; color: white; border: solid white 1px; border-radius: 4px; font-size: 1rem; font-weight: bold; cursor: pointer; }
+        button:hover { background-color: #584315; }
+        
+        .Calc { width: 20%; display: inline-block; margin-right: 3%; }
+        #divisão { margin-right: 0; }
+        
         .resultado-box { margin-top: 20px; padding: 12px; background-color: #e9ecef; border-radius: 4px; text-align: center; font-weight: bold; min-height: 20px; color: #4b2812; }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <h2>Calculadora</h2>
+        <h2>Calculadora - L.F.A.S</h2>
         
         <div class="campo">
             <label for="n1m">Primeiro Número:</label>
@@ -27,19 +33,17 @@
 
         <div class="campo">
             <label for="N2m">Segundo Número:</label>
-            <input type="number" id="N2m" placeholder="Digite aqui..." step="any">
+            <input type="number" id="n2m" placeholder="Digite aqui..." step="any">
         </div>
 
-    
-        <button id="soma" onclick = "calculo('+')">+</button>
-        <button id="subtação" onclick="calculo('-')">-</button>
-        <button id="multiplicação" onclick="calculo('*')">*</button>
-        <button id="divisão" onclick="calculo('/')">/</button>
+        <button id="soma" class="Calc" onclick="calculo('+')">+</button>
+        <button id="subtação" class="Calc" onclick="calculo('-')">-</button>
+        <button id="multiplicação" class="Calc" onclick="calculo('*')">*</button>
+        <button id="divisão" class="Calc" onclick="calculo('/')">/</button>
 
-        <button id="btnCalcular" onclick="Calculações()">Calcular</button>
+        <button id="btnCalcular" onclick="Calculacoes()">Calcular</button>
 
         <div class="resultado-box" id="resultado">
-            
         </div>
     </div>
 
